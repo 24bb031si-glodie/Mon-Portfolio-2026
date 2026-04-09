@@ -219,8 +219,271 @@ footer a:hover {
    color: var(--orange-vif);
    transform: translateY(-3px);
 }
-img{
-   width: 100%;
-   height: 170px;
-   object-fit: cover;
+
+
+/* --- Styles spécifiques pour la page Projets (Grille) --- */
+
+.projets-section {
+    padding: 6rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: var(--gris-tres-clair); /* Fond gris très clair pour la section */
+}
+
+/* En-tête de la section (Titre h2) */
+.projets-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.projets-header h2 {
+    color: var(--violet-doux);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Barre violette sous le titre, comme sur la maquette */
+.projets-header h2::after {
+    content: '';
+    display: block;
+    width: 70px; /* Plus large comme sur l'image */
+    height: 4px;
+    background-color: var(--violet-doux);
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Grille de projets (3 colonnes) */
+.projets-grid {
+    display: grid;
+    /* Crée 3 colonnes de taille égale, s'adapte automatiquement sur mobile */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem; /* Espace entre les cartes */
+}
+
+/* Style de la Carte de Projet */
+.projet-card {
+    background-color: white;
+    border-radius: 15px; /* Bords arrondis */
+    overflow: hidden; /* Pour que l'image respecte l'arrondi */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Effet au survol de la carte */
+.projet-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Conteneur de l'image */
+.projet-image {
+    width: 100%;
+    height: 220px; /* Hauteur fixe pour l'uniformité */
+    overflow: hidden;
+    position: relative;
+}
+
+/* L'image elle-même */
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit le conteneur sans se déformer */
+    transition: transform 0.5s ease;
+}
+
+/* Animation de zoom sur l'image au survol */
+.projet-card:hover .projet-image img {
+    transform: scale(1.05);
+}
+
+/* Contenu textuel de la carte */
+.projet-content {
+    padding: 2rem;
+    text-align: left;
+    flex-grow: 1; /* Pousse les liens vers le bas */
+}
+
+.projet-content h3 {
+    color: var(--violet-doux);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.projet-content p {
+    color: var(--gris-foncé);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Badges de technologies (Tags) */
+.projet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background-color: rgba(108, 99, 255, 0.1); /* Violet très clair translucide */
+    color: var(--violet-doux);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+/* Section des Liens en bas de carte */
+.projet-links {
+    padding: 1.2rem 2rem;
+    border-top: 1px solid var(--gris-clair); /* Ligne de séparation */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbfbfb; /* Légèrement différent pour le footer de carte */
+}
+
+.projet-links a, 
+.projet-links span.link-disabled {
+    text-decoration: none;
+    color: var(--gris-tres-foncé);
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espace entre icône et texte */
+    transition: color 0.3s;
+}
+
+/* Icônes spécifiques (gris par défaut) */
+.projet-links i {
+    font-size: 1.1rem;
+    color: var(--gris-foncé);
+    transition: color 0.3s;
+}
+
+/* Effet au survol des liens */
+.projet-links a:hover {
+    color: var(--violet-doux);
+}
+
+.projet-links a:hover i {
+    color: var(--violet-doux);
+}
+
+/* Style pour le statut "Bientôt" (gris) */
+.link-disabled {
+    color: var(--gris-foncé) !important;
+    cursor: default;
+}
+
+/* Style spécifique pour l'icône Bientôt (icône horloge) */
+.link-disabled i.fa-regular.fa-clock {
+    color: var(--gris-foncé) !important;
+}
+
+/* Style spécifique pour les liens Design (Design/Aperçu) */
+.projet-links a i.fa-brands.fa-figma,
+.projet-links a i.fa-regular.fa-eye {
+    color: var(--gris-foncé);
+}
+
+
+
+
+/* --- Styles pour la page Contact --- */
+
+.contact-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-form {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gris-tres-foncé);
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gris-clair);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--violet-doux);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--violet-doux);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--violet-foncé);
+}
+
+.social-direct {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--gris-clair);
+    padding-top: 1.5rem;
+}
+
+.social-icons-contact {
+    margin-top: 1rem;
+}
+
+.social-icons-contact a {
+    font-size: 2rem;
+    margin: 0 15px;
+    color: var(--violet-doux);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons-contact a:hover {
+    color: var(--orange-vif);
+    transform: scale(1.2);
 }
