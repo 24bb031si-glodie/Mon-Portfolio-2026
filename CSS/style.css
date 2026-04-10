@@ -487,3 +487,274 @@ footer a:hover {
     color: var(--orange-vif);
     transform: scale(1.2);
 }
+
+
+/* --- Styles Page Divertissement (Bento Asymétrique) --- */
+
+.divertissement-container {
+    padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* La Grille Bento */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 200px;
+    gap: 20px;
+}
+
+/* Style de base d'un élément */
+.bento-item {
+    position: relative;
+    border-radius: 25px; /* Très arrondi pour le style moderne */
+    overflow: hidden;
+    background-color: var(--gris-clair);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.bento-item:hover {
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+/* Gestion des images */
+.bento-img {
+    width: 100%;
+    height: 100%;
+}
+
+.bento-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: filter 0.3s ease;
+}
+
+.bento-item:hover .bento-img img {
+    filter: brightness(0.4);
+}
+
+/* Superposition de l'info (Overlay) */
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.bento-info i {
+    font-size: 2rem;
+    color: var(--orange-vif);
+    margin-bottom: 1rem;
+}
+
+.bento-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bento-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.bento-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- CONFIGURATION ASYMÉTRIQUE DES BLOCS --- */
+
+/* Films : Prend 8 colonnes sur 12 */
+.item-films {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+/* Jeux : Petit bloc carré */
+.item-jeux {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Fitness : Bloc vertical long */
+.item-fitness {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+/* Social : Bloc moyen */
+.item-social {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Vidéo : Bloc large horizontal */
+.item-video {
+    grid-column: span 8;
+    grid-row: span 1;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+    }
+    .bento-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- Styles Page Passion (Design Vivant & Asymétrique) --- */
+
+.passion-page {
+    padding-bottom: 5rem;
+    overflow-x: hidden;
+}
+
+.passion-intro {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, white 0%, var(--gris-tres-clair) 100%);
+}
+
+.passion-intro h1 {
+    font-size: 3.5rem;
+    color: var(--violet-doux);
+    margin-bottom: 1rem;
+}
+
+.passion-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Grand espace pour laisser respirer les formes */
+}
+
+.passion-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInPassion 0.8s forwards ease-out;
+}
+
+@keyframes fadeInPassion {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- LES FORMES ASYMÉTRIQUES (BLOBS) --- */
+.passion-shape {
+    flex: 1;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+    transition: transform 0.5s ease;
+    animation: floating 6s ease-in-out infinite;
+}
+
+/* Chaque image a une forme organique différente */
+.item-1 .passion-shape { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+.item-2 .passion-shape { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+.item-3 .passion-shape { border-radius: 67% 33% 82% 18% / 47% 19% 81% 53%; }
+.item-4 .passion-shape { border-radius: 30% 70% 25% 75% / 48% 30% 70% 52%; }
+.item-5 .passion-shape { border-radius: 80% 20% 30% 70% / 30% 30% 70% 70%; }
+
+.passion-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.passion-item:hover .passion-shape img {
+    transform: scale(1.1);
+}
+
+/* --- INFOS --- */
+.passion-info {
+    flex: 1;
+}
+
+.passion-info h3 {
+    color: var(--violet-doux);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.passion-info p {
+    font-size: 1.1rem;
+    color: var(--gris-foncé);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.link-passion {
+    text-decoration: none;
+    color: var(--violet-doux);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 2px solid var(--violet-doux);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.link-passion:hover {
+    background-color: var(--violet-doux);
+    color: white;
+    padding-left: 30px;
+}
+
+/* --- ANIMATION DE FLOTTEMENT --- */
+@keyframes floating {
+    0% { transform: translatey(0px) rotate(0deg); }
+    50% { transform: translatey(-20px) rotate(2deg); }
+    100% { transform: translatey(0px) rotate(0deg); }
+}
+
+/* Responsive : On empile tout sur mobile */
+@media (max-width: 850px) {
+    .passion-item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    .passion-shape {
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+    }
+}
