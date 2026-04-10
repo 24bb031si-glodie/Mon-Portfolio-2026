@@ -24,43 +24,53 @@
             </ul>
         </nav>
     </header>
-  <main>
-    <main>
-    <section class="contact-section">
-        <div class="contact-container">
-            <h2>Contactez-moi</h2>
-            <p>Je suis basée à <strong>Lubumbashi</strong>. N'hésitez pas à me joindre pour toute collaboration !</p>
+  <main class="contact-page">
+    <div class="vibrant-blob blob-1"></div>
+    <div class="vibrant-blob blob-2"></div>
+    <div class="vibrant-blob blob-3"></div>
 
-            <form action="#" method="post" class="contact-form">
-                <div class="form-group">
-                    <label for="nom">Nom Complet</label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+    <section class="contact-card">
+        <div class="contact-header">
+            <h1>Parlons de votre projet</h1>
+            <p>Basée à <span class="location-tag"><i class="fa-solid fa-location-dot"></i> Lubumbashi</span>, je suis prête à collaborer avec vous partout dans le monde.</p>
+        </div>
+
+        <div class="contact-content">
+            <form action="#" class="amazing-form">
+                <div class="input-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Nom Complet</label>
+                    <i class="fa-solid fa-user"></i>
                 </div>
 
-                <div class="form-group">
-                    <label for="telephone">Numéro (WhatsApp / Telegram)</label>
-                    <input type="tel" id="telephone" name="telephone" placeholder="+243..." required>
+                <div class="input-group">
+                    <input type="tel" id="phone" required>
+                    <label for="phone">Numéro (WhatsApp / Telegram)</label>
+                    <i class="fa-solid fa-phone"></i>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Votre message..."></textarea>
+                <div class="input-group">
+                    <textarea id="msg" required></textarea>
+                    <label for="msg">Votre Message</label>
+                    <i class="fa-solid fa-comment-dots"></i>
                 </div>
 
-                <button type="submit" class="btn-submit">Envoyer le message</button>
+                <button type="submit" class="send-btn">
+                    <span>Envoyer l'idée</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
             </form>
 
-            <div class="social-direct">
-                <p>Ou contactez-moi directement sur :</p>
-                <div class="social-icons-contact">
-                    <a href="https://wa.me/VOTRE_NUMERO" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://t.me/VOTRE_USERNAME" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <div class="quick-reach">
+                <p>Réponse rapide via :</p>
+                <div class="reach-icons">
+                    <a href="https://wa.me/243XXXXXXXXX" class="reach-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://t.me/ton_username" class="reach-tg" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
                 </div>
             </div>
         </div>
     </section>
 </main>
-  </main>
     <footer>
         <div>
             <p>&copy;2026 Glodie. tous droits réservés.</p>

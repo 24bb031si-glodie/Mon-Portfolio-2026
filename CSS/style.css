@@ -398,98 +398,210 @@ footer a:hover {
 
 
 
-/* --- Styles pour la page Contact --- */
+/* --- Styles Page Contact Incroyable --- */
 
-.contact-section {
-    padding: 4rem 2rem;
+.contact-page {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow: hidden; /* Pour contenir les cercles animés */
+    background-color: var(--gris-tres-clair);
 }
 
-.contact-container {
-    background-color: white;
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+/* Cercles de couleur animés en arrière-plan */
+.vibrant-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    animation: moveBlobs 10s infinite alternate;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(108, 99, 255, 0.2);
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 167, 38, 0.2);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 2s;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: var(--violet-doux);
+    opacity: 0.1;
+    top: 40%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+@keyframes moveBlobs {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(50px, 100px) scale(1.2); }
+}
+
+/* Carte de contact Glassmorphism */
+.contact-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 3.5rem;
+    border-radius: 30px;
     width: 100%;
+    max-width: 650px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.contact-header h1 {
+    color: var(--violet-doux);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.location-tag {
+    background: var(--violet-doux);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Groupes d'entrée modernes */
+.amazing-form {
+    margin-top: 3rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: var(--violet-doux);
+    font-size: 1.1rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    left: 45px;
+    top: 15px;
+    color: var(--gris-foncé);
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+/* Animation des labels quand on clique/écrit */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label {
+    top: -25px;
+    left: 10px;
+    font-size: 0.85rem;
+    color: var(--violet-doux);
+    font-weight: bold;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--violet-doux);
+    background: white;
+}
+
+/* Bouton Envoyer avec vie */
+.send-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--violet-doux);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.send-btn:hover {
+    background: var(--violet-foncé);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+}
+
+.send-btn:hover i {
+    animation: fly 0.6s infinite alternate;
+}
+
+@keyframes fly {
+    to { transform: translateX(5px) translateY(-5px); }
+}
+
+/* Quick Reach Icons */
+.quick-reach {
+    margin-top: 2.5rem;
     text-align: center;
 }
 
-.contact-form {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--gris-tres-foncé);
-    font-weight: 600;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--gris-clair);
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: var(--violet-doux);
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: var(--violet-doux);
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: var(--violet-foncé);
-}
-
-.social-direct {
-    margin-top: 2.5rem;
-    border-top: 1px solid var(--gris-clair);
-    padding-top: 1.5rem;
-}
-
-.social-icons-contact {
+.reach-icons {
     margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.social-icons-contact a {
-    font-size: 2rem;
-    margin: 0 15px;
-    color: var(--violet-doux);
-    transition: transform 0.3s ease, color 0.3s ease;
+.reach-icons a {
+    font-size: 2.2rem;
+    transition: transform 0.3s;
 }
 
-.social-icons-contact a:hover {
-    color: var(--orange-vif);
-    transform: scale(1.2);
+.reach-wa { color: #25D366; }
+.reach-tg { color: #0088cc; }
+
+.reach-icons a:hover {
+    transform: scale(1.3) rotate(10deg);
 }
 
 
 /* --- Styles Page Divertissement (Bento Asymétrique) --- */
+
+.divertissement-container h1 {
+    font-size: 3.5rem;
+    color: var(--violet-doux);
+    margin-bottom: 1rem;
+}    
 
 .divertissement-container {
     padding: 4rem 5%;
@@ -498,7 +610,7 @@ footer a:hover {
 }
 
 .header-section {
-    text-align: center;
+    text-align: center;j
     margin-bottom: 4rem;
 }
 
